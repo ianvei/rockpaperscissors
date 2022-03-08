@@ -1,0 +1,48 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+button {
+    width: 200px;
+    height: 100px;
+}
+
+.buttons {
+    display: inline-flex;
+    gap: 50px;
+}
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.user {
+    display: inline-flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.computer {
+    display: inline-flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.user-result {
+    background-color: blue;
+    width: 100px;
+    height: 50px;
+}
+
+.computer-result {
+    background-color: red;
+    width: 100px;
+    height: 50px;
+}
