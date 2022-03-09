@@ -18,9 +18,20 @@ function computerPlay() {
     }    
 }
 
+// potentially could have it remove each time the game loops
+
+function createRock(){
+    const rockImage = document.createElement('img');
+    rockImage.setAttribute('src', 'images/rock.png');
+    userImgToReplace.appendChild(rockImage);
+    return rockImage
+}
+
+
 function userPlay(userInput) {
     // let userInput = prompt("Rock, Paper, or Scissors?");
     // userInput = userInput.toLowerCase();
+    // error: this should only be possible once per turn (look into that 'once' thing from the video)
     if (userInput === 'r') {
         let userValue = 1;
         console.log(userValue)
@@ -74,12 +85,22 @@ function playRound(user, computer) {
 }
 
 const buttons = document.querySelectorAll('button');
+const userImgToReplace = document.querySelector('#userresult');
 
 let userInput = '';
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        try {
+            console.log('Im trying')
+            userImgToReplace.removeChild(rockImage)
+        }
+        catch(e) {
+            console.log('does not exist yet')
+        }
         let userInput = button.id;
         playRound(userPlay(userInput), computerPlay());
+        // idea: change createRock to create image, and then take the input from userInput to determine what image should be displayed
+        rockImage = createRock(userImgToReplace)
     } )
 })
 
