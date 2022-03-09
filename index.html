@@ -9,7 +9,8 @@
     <script src="script.js" defer></script> 
 </head>
 <body>
-    <h1>First to five wins!</h1>
+    <div class="content-width">
+    <h1 class="title">First to five wins!</h1>
     <div class="buttons">
         <button id="r"> <img src="images/r.png"> </button>
         <button id="p"> <img src="images/p.png"> </button>
@@ -29,14 +30,21 @@
         </div>
     </div>
     <div class="score">
-        <h2>Result:</h2>
-        <h3 class="game-result">X wins!</h3>
-        <h3 class="game-choices">X beats Y!</h3>
+        
+        <h1 class="game-result">Select a move to begin</h1>
+        
     </div>
     <div class="points">
-        <h4 class="user-score">User Score:</h4>
-        <h4 class="computer-score">Computer Score:</h4>
+        <div class="user-score-box">
+            <h4 class="user-score">User Score:</h4>
+            <div class="user-display-box"></div>
+        </div>
+            <div class="computer-score-box">
+            <h4 class="computer-score">Computer Score:</h4>
+            <div class="computer-display-box"></div>
+        </div>
     </div>
-    <h5>Copyright Ian Veilleux 2022</h5>
+    <h5 class="footer">Copyright Ian Veilleux 2022</h5>
+    </div>  
 </body>
 </html>
