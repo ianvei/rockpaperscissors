@@ -20,11 +20,27 @@ function computerPlay() {
 
 // potentially could have it remove each time the game loops
 
-function createRock(){
-    const rockImage = document.createElement('img');
-    rockImage.setAttribute('src', 'images/rock.png');
-    userImgToReplace.appendChild(rockImage);
-    return rockImage
+function createImg(choice, userImgToReplace){
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', `images/${choice}.png`);
+    userImgToReplace.appendChild(newImage);
+    return newImage
+}
+
+function createCompImg(choice, compImgToReplace){
+    if (choice === 1) {
+        choice = 'r'
+    }
+    else if (choice === 2) {
+        choice = 'p'
+    }
+    else if (choice === 3) {
+        choice = 's'
+    }
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', `images/${choice}.png`);
+    compImgToReplace.appendChild(newImage);
+    return newImage;
 }
 
 
@@ -50,57 +66,72 @@ function userPlay(userInput) {
     
 }
 
+
+
 function playRound(user, computer) {
+    const gameResult = document.querySelector('.game-result');
+    const gameChoices = document.querySelector('.game-choices');
     if (user === computer) {
-        console.log(`you chose: ${user}, computer chose: ${computer}`);
-        console.log("draw!");
+        gameResult.textContent = `draw!`;
+        console.log('draw!')
+        // add the rest now
     }
     else if(user === 1) {
         if(computer === 3) {
             console.log(`you chose: ${user}, computer chose: ${computer}`);
             console.log("rock wins");
+            gameResult.textContent = `User Wins!`;
         } else {
             console.log(`you chose: ${user}, computer chose: ${computer}`);
             console.log("paper wins");
+            gameResult.textContent = `Computer Wins!`;
         }
     }
     else if (user === 2) {
         if (computer === 1) {
             console.log(`you chose: ${user}, computer chose: ${computer}`);
-            console.log("user wins");
+            gameResult.textContent = `User Wins!`;
         } else if (computer === 3) {
             console.log(`you chose: ${user}, computer chose: ${computer}`);
-            console.log("computer wins");
+            gameResult.textContent = `Computer Wins!`;
             }
         }
     else if (user === 3) {
         if (computer === 1) {
             console.log(`you chose: ${user}, computer chose: ${computer}`);
-            console.log("computer wins");
+            gameResult.textContent = `Computer Wins!`;
         } else if (computer === 2) {
             console.log(`you chose: ${user}, computer chose: ${computer}`);
-            console.log("user wins");
+            gameResult.textContent = `User Wins!`;;
             }
         }
 }
 
 const buttons = document.querySelectorAll('button');
 const userImgToReplace = document.querySelector('#userresult');
+const compImgToReplace = document.querySelector('#compresult');
 
 let userInput = '';
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         try {
             console.log('Im trying')
-            userImgToReplace.removeChild(rockImage)
+            userImgToReplace.removeChild(newImage)
+            compImgToReplace.removeChild(compImage)
+            // gameResult.remove()
+            // gameResult.remove()
         }
         catch(e) {
             console.log('does not exist yet')
         }
         let userInput = button.id;
-        playRound(userPlay(userInput), computerPlay());
+        computerChoice = computerPlay()
+
+        playRound(userPlay(userInput), computerChoice);
         // idea: change createRock to create image, and then take the input from userInput to determine what image should be displayed
-        rockImage = createRock(userImgToReplace)
+        newImage = createImg(userInput, userImgToReplace)
+        compImage = createCompImg(computerChoice, compImgToReplace)
+        // if counter == 5 break game and raise alert
     } )
 })
 
