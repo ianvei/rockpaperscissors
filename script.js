@@ -12,8 +12,6 @@ function computerPlay() {
     }    
 }
 
-// potentially could have it remove each time the game loops
-
 function createImg(choice, userImgToReplace){
     const newImage = document.createElement('img');
     newImage.setAttribute('src', `images/${choice}.png`);
@@ -39,9 +37,6 @@ function createCompImg(choice, compImgToReplace){
 
 
 function userPlay(userInput) {
-    // let userInput = prompt("Rock, Paper, or Scissors?");
-    // userInput = userInput.toLowerCase();
-    // error: this should only be possible once per turn (look into that 'once' thing from the video)
     if (userInput === 'r') {
         let userValue = 1;
         return(userValue);
@@ -57,28 +52,21 @@ function userPlay(userInput) {
     
 }
 
-
-
 function playRound(user, computer) {
     const gameResult = document.querySelector('.game-result');
-    // const gameChoices = document.querySelector('.game-choices');
     const userScoreDisplay = document.querySelector('.user-display-box');
     const computerScoreDisplay = document.querySelector('.computer-display-box');
     
     if (user === computer) {
         gameResult.textContent = `Draw!`;
-        
-        // add the rest now
     }
     else if(user === 1) {
         if(computer === 3) {
             gameResult.textContent = `User Wins!`;
-            // userScoreChecks += "✅" 
             userScoreCounter++
             userScoreDisplay.textContent = `${userScoreCounter}`;
         } else {
             gameResult.textContent = `Computer Wins!`;
-            // computerScoreChecks += "✅" 
             computerScoreCounter++
             computerScoreDisplay.textContent = `${computerScoreCounter}`;
             
@@ -111,9 +99,15 @@ function playRound(user, computer) {
             }
         }
         if (userScoreCounter >= 5|| computerScoreCounter >= 5){
+            if (userScoreCounter > computerScoreCounter){
+                alert(`Game Over! Congratulations, You Win!`)
+            }
+            else {
+                alert(`Game Over! Computer Wins`)
+            }
             userScoreCounter = 0
             computerScoreCounter = 0
-            alert('Game Over!')
+            
             userScoreDisplay.textContent = `${userScoreCounter}`;
             computerScoreDisplay.textContent = `${computerScoreCounter}`;
         }
@@ -148,17 +142,3 @@ buttons.forEach((button) => {
 })
 
 
-// function game() {
-//     for (let i = 0; i < 5; i++){
-//         console.log('game loop working')
-//         // userChoice = userButtons()
-//         playRound(userPlay(userInput), computerPlay());
-//     }
-
-// }
-// playRound(userPlay(userInput), computerPlay())
-
-// issue: game loop seems to run wtihout user input //
-
-// game()
-// console.log(`you chose: ${userPlay()}, computer chose: ${computerPlay()}`)

@@ -12,6 +12,7 @@ body {
 
 .content-width {
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -19,7 +20,7 @@ body {
     gap: 20px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 0;
-    background-color: #EEEEEE;
+    background-color: #D8D2CB;
 }
 
 button {
@@ -28,7 +29,7 @@ button {
     height: 120px;
     align-items: center;
     justify-content: center;
-    background-color: #D8D2CB;
+    background-color: #EEEEEE;
     border-color: black;
 }
 
@@ -78,7 +79,7 @@ img {
     height: 120px;
     align-items: center;
     justify-content: center;
-    background-color: #D8D2CB;
+    background-color: #EEEEEE;
 }
 
 .computer-result {
@@ -89,7 +90,7 @@ img {
     height: 120px;
     align-items: center;
     justify-content: center;
-    background-color: #D8D2CB;
+    background-color: #EEEEEE;
 }
 
 .score {
@@ -99,13 +100,14 @@ img {
     border: 2px solid black;
     padding: 10px;
     margin-top: 20px;
-    background-color: #D8D2CB;
+    background-color: #EEEEEE;
 }
 
 .points {
     display: inline-flex;
     width: 620px;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -153,7 +155,9 @@ h4 {
 
 .title {
     margin-top: 0px;
-    padding-top: 25px;
+    padding-top: 40px;
+    font-weight: bolder;
+    font-size: 50px;
 }
 
 /* .computer-score-box {
